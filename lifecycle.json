@@ -1,0 +1,18 @@
+{
+    "Rules": [{
+        "Expiration": {
+            "Days": 1
+        },
+        "ID": "default",
+        "Filter": {
+            "Prefix": ""
+        },
+        "Status": "Enabled",
+        "NoncurrentVersionExpiration": {
+            "NoncurrentDays": 1
+        },
+        "AbortIncompleteMultipartUpload": {
+            "DaysAfterInitiation": 1
+        }
+    }]
+}
