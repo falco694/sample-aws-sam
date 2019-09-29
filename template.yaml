@@ -35,18 +35,18 @@ Resources:
               Action:
                 - ec2:Describe*
               Resource: "*"
-  DefaultLambdaPermission:
-    Type: "AWS::Lambda::Permission"
-    Properties:
-      Action: lambda:InvokeFunction
-      FunctionName: !Ref DefaultFunction
-      Principal: apigateway.amazonaws.com
       # Events:
       #   Default:
       #     Type: Api # More info about API Event Source: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#api
       #     Properties:
       #       Path: /
       #       Method: get
+  DefaultLambdaPermission:
+    Type: "AWS::Lambda::Permission"
+    Properties:
+      Action: lambda:InvokeFunction
+      FunctionName: !Ref DefaultFunction
+      Principal: apigateway.amazonaws.com
   DefaultApi:
     Type: AWS::Serverless::Api
     Properties:
