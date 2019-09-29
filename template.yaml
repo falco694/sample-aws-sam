@@ -3,7 +3,7 @@ Transform: AWS::Serverless-2016-10-31
 Description: >
   sample-aws-sam
 
-  Sample SAM Template for sample-aws-sam
+  SAM Template for sample-aws-sam
 
 # More info about Globals: https://github.com/awslabs/serverless-application-model/blob/master/docs/globals.rst
 Globals:
