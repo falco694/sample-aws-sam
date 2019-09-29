@@ -1,4 +1,4 @@
--i https://pypi.org/simple/
+-i https://pypi.org/simple
 boto3==1.9.238
 botocore==1.12.238
 docutils==0.15.2

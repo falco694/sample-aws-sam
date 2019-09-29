@@ -54,7 +54,7 @@ Resources:
       DefinitionBody:
         swagger: "2.0"
         info:
-          title: sam-apig-resource-policy-api
+          title: !Ref DefaultFunction
         schemes:
           - https
         paths:
