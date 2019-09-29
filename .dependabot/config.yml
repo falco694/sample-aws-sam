@@ -6,7 +6,3 @@ update_configs:
     target_branch: "master"
     default_labels:
       - "dependencies"
-    allowed_updates:
-      - match:
-          dependency_type: "direct"
-    version_requirement_updates: "auto"
