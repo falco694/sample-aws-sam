@@ -44,5 +44,6 @@ logs:
 	sam logs -n DefaultFunction --stack-name $(STACK_NAME) --tail
 
 clean:
+	-pipenv --rm
 	aws cloudformation delete-stack --stack-name $(STACK_NAME)
 	aws s3 rb s3://$(BUCKET_NAME) --force
