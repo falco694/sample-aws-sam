@@ -18,6 +18,7 @@ validate:
 
 build:
 	pipenv lock -r > src/requirements.txt
+	sed -i -e "s@https://pypi.org/simple@https://pypi.org/simple/@g" src/requirements.txt
 	sam build
 
 debug: build
