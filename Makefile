@@ -38,7 +38,6 @@ deploy: package
 describe:
 	aws cloudformation describe-stacks \
 		--stack-name $(STACK_NAME) \
-		--query 'Stacks[].Outputs[?OutputKey==`DefaultApi`]' \
 		--output table
 
 logs:
