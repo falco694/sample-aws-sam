@@ -35,6 +35,9 @@ Resources:
               Action:
                 - ec2:Describe*
               Resource: "*"
+      Environment:
+        Variables:
+          TZ: Asia/Tokyo
       # Events:
       #   Default:
       #     Type: Api # More info about API Event Source: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#api
