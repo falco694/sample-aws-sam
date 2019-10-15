@@ -5,4 +5,7 @@ update_configs:
     update_schedule: "daily"
     target_branch: "master"
     default_labels:
-      - "dependencies"
+    automerged_updates:
+      - match:
+          # Wildcards match unlimited arbitrary characters (or none)
+          dependency_name: "boto3"
