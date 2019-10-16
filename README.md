@@ -1,5 +1,7 @@
 # sample-aws-sam
 
+![](https://github.com/falco694/sample-aws-sam/workflows/Python%20application/badge.svg)
+
 This is a sample template for sample-aws-sam - Below is a brief explanation of what we have generated for you:
 
 ```bash
