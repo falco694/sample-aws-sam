@@ -24,6 +24,9 @@ build:
 debug: build
 	sam local invoke $(FUNCTIONNAME) --event event.json
 
+test: build
+	pipenv run python -m pytest tests/ -v
+
 package: build
 	sam package \
 		--output-template-file packaged.yaml \

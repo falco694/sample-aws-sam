@@ -1,3 +1,4 @@
+import json
 import os
 
 import boto3
@@ -34,56 +35,19 @@ def lambda_handler(event, context):
 
     #     raise e
 
-    # ログ出力は、エラーログ捕捉のため、[/aws/lambda]に統一するため、どのlambda、どのバージョンかわかるように、その情報を標準出力する
-    print(os.environ['AWS_LAMBDA_FUNCTION_NAME'])
+    # 認証情報不要の処理
+    regions = boto3.Session().get_available_regions('ec2')
+    print(regions)
 
-    client = boto3.client('ec2')
-    instance_list = client.describe_instances(
-        Filters=[
-            {
-                "Name": "instance-state-name",
-                "Values": [
-                    "pending",
-                    "running",
-                    "shutting-down",
-                    "terminated",
-                    "stopping",
-                    "stopped"
-                ]
-            }
-        ]
-    )
+    response = {}
+    response["isBase64Encoded"] = False
+    response["statusCode"] = 200
+    response["headers"] = {}
+    response["body"] = {}
+    response["body"]["message"] = "ok"
+    response["body"]["regions"] = regions
 
-    output_instance_list = []
-    for Reservations in instance_list["Reservations"]:
-        for dev_instances in Reservations["Instances"]:
-            output_instance = {}
-            output_instance["instance_id"] = dev_instances["InstanceId"]
-            output_instance["public_ip"] = dev_instances["PublicIpAddress"]
-            output_instance["State"] = dev_instances["State"]["Name"]
-            for tagitem in dev_instances["Tags"]:
-                if tagitem["Key"] == "Name":
-                    output_instance["instance_name"] = tagitem["Value"]
-
-            output_instance_list.append(output_instance)
-
-    result = ""
-    for item in output_instance_list:
-        result += "[{}] {} ({}) Public IP: {}\n".format(
-            item["State"],
-            item["instance_id"],
-            item["instance_name"],
-            item["public_ip"]
-        )
-
-    print(result)
-
-    return {
-        'isBase64Encoded': False,
-        'statusCode': 200,
-        'headers': {},
-        'body': '{"message": "ok"}'
-    }
+    return json.dumps(response)
 
 
 def get_parameters(param_key):

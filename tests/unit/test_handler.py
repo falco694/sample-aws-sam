@@ -65,9 +65,10 @@ def apigw_event():
 def test_lambda_handler(apigw_event, mocker):
 
     ret = app.lambda_handler(apigw_event, "")
-    data = json.loads(ret["body"])
+    data = json.loads(ret)
 
-    assert ret["statusCode"] == 200
-    assert "message" in ret["body"]
-    assert data["message"] == "hello world"
-    # assert "location" in data.dict_keys()
+    assert data["statusCode"] == 200
+    assert "message" in data["body"]
+    assert data["body"]["message"] == "ok"
+    assert 'ap-northeast-1' in data["body"]["regions"], \
+        "not exist ap-northeast-1 in regions."
