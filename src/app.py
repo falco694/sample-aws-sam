@@ -32,9 +32,6 @@ def lambda_handler(event, context):
 
     #     raise e
 
-    # ログ出力は、エラーログ捕捉のため、[/aws/lambda]に統一するため、どのlambda、どのバージョンかわかるように、その情報を標準出力する
-    print(os.environ['AWS_LAMBDA_FUNCTION_NAME'])
-
     client = boto3.client('ec2')
     instance_list = client.describe_instances(
         Filters=[
