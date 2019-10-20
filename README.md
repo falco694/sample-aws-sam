@@ -1,6 +1,8 @@
 # sample-aws-sam
 
 ![](https://github.com/falco694/sample-aws-sam/workflows/Python%20application/badge.svg)
+[![Requirements Status](https://requires.io/github/falco694/sample-aws-sam/requirements.svg?branch=master)](https://requires.io/github/falco694/sample-aws-sam/requirements/?branch=master)
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/f676eb7fa42b4ffa960ff18447510555)](https://www.codacy.com/manual/falco694/sample-aws-sam?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=falco694/sample-aws-sam&amp;utm_campaign=Badge_Grade)
 
 This is a sample template for sample-aws-sam - Below is a brief explanation of what we have generated for you:
 
