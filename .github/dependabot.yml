@@ -1,0 +1,12 @@
+version: 2
+updates:
+- package-ecosystem: pip
+  directory: "/"
+  schedule:
+    interval: monthly
+    time: "22:00"
+    timezone: Asia/Tokyo
+  open-pull-requests-limit: 10
+  target-branch: master
+  labels:
+  - dependencies
